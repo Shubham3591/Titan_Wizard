@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="FullRegression1" >
+    <listeners>
+        <listener class-name="titan.dev.analyzer.TitanTransformer"/>
+        <listener class-name="titan.dev.reports.ExtentReportListener"/>
+    </listeners>
+
+    <test name="AllTests1" preserve-order="true" >
+        <classes>
+              <class name="titan.dev.Practice"/>
+
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="FullRegression"  parallel="tests" thread-count="1"  >
+    <listeners>
+        <listener class-name="titan.dev.analyzer.TitanTransformer"/>
+        <listener class-name="titan.dev.reports.ExtentReportListener"/>
+    </listeners>
+
+    <test name="AllTests" preserve-order="true" parallel="classes" thread-count="1"  >
+        <classes>
+              <class name="titan.dev.productTest.CameraProductsTest"/>
+            <class name="titan.dev.productTest.PhoneProductTest"/>
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
