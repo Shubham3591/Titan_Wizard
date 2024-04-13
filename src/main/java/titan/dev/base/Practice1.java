@@ -1,15 +1,13 @@
 package titan.dev.base;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.Alert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
-import titan.dev.util.Utilities;
-
 
 import java.util.List;
 
@@ -17,8 +15,8 @@ public class Practice1 {
     public static WebDriver driver;
 
     public static void Test() {
-        WebDriverManager.chromedriver().setup();
-        ChromeDriver driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        driver = new ChromeDriver(options);
         driver.get("https://www.saucedemo.com/inventory.html");
 
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
@@ -50,8 +48,8 @@ public class Practice1 {
 
         public static void Test123() {
 
-        WebDriverManager.chromedriver().setup();
-        ChromeDriver driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        driver = new ChromeDriver(options);
         driver.get("https://semantic-ui.com/modules/dropdown.html");
 
         //WebElement a= driver.findElement(By.xpath(""));

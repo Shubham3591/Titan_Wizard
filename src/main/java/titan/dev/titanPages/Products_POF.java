@@ -25,6 +25,10 @@ public class Products_POF extends TestBase {
     @FindBy(xpath = "//span[normalize-space()='Checkout']")
     public WebElement checkoutOrderButton;
 
+
+    @FindBy(xpath = "//a[@class='btn btn-primary']")
+    public WebElement finalCheckoutOrderButton;
+
     @FindBy(xpath = "//input[@id='button-payment-address']")
     public WebElement billingDetailsContinueButton;
 

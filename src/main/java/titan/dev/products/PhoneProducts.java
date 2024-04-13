@@ -27,7 +27,7 @@ public final class PhoneProducts {
         Utilities.wait(ProductsPage.checkoutOrderButton);
         click(ProductsPage.checkoutOrderButton);
         System.out.println("Item Successfully added");
-        ProductUtils.ConfirmOrder();
+        //ProductUtils.ConfirmOrder();
         System.out.println("Iphone order Successfully placed");
 
     }

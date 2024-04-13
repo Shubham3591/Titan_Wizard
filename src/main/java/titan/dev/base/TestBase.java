@@ -1,6 +1,5 @@
 package titan.dev.base;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
@@ -8,9 +7,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.support.PageFactory;
-import titan.dev.titanPages.*;
+import titan.dev.titanPages.Home_POF;
+import titan.dev.titanPages.Login_POF;
+import titan.dev.titanPages.Logout_POF;
+import titan.dev.titanPages.Products_POF;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -58,19 +59,17 @@ public class TestBase {
 
 
             if (configurationfile.getProperty("browser").equalsIgnoreCase("chrome")) {
-                //System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/test/resources/executables/chromedriver.exe");
-                WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
                 options.setPageLoadStrategy(PageLoadStrategy.EAGER);
                 options.addArguments("start-maximized");
                 options.addArguments("enable-automation");
+                options.addArguments("--remote-allow-origins=*");
                 //options.addArguments("--headless");
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-infobars");
                 options.addArguments("--disable-dev-shm-usage");
                 options.addArguments("--disable-browser-side-navigation");
                 options.addArguments("--disable-gpu");
-                options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
                 downloadFileLocation = folder.getAbsolutePath();
                 HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
                 chromePrefs.put("profile.default_content_settings.popups", 0);
@@ -83,12 +82,9 @@ public class TestBase {
                 PageFactoryInit();
 
             } else if (configurationfile.getProperty("browser").equalsIgnoreCase("edge")) {
-                //System.setProperty("webdriver.edge.driver",System.getProperty("user.dir") + "/lib/msedgedriver.exe");
-                WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver();
                 driver.manage().window().maximize();
             } else if (configurationfile.getProperty("browser").equalsIgnoreCase("firefox")) {
-                WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
                 driver.manage().window().maximize();
             }

@@ -1,6 +1,6 @@
 package titan.dev;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,8 +25,8 @@ public class Practice extends Practice1 {
 
     @Test(enabled=true)
     public void GoogleSearchTest() throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        ChromeDriver driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        driver = new ChromeDriver(options);
         driver.get("https://www.google.com/");
         driver.manage().window().maximize();
 
@@ -49,8 +49,8 @@ public class Practice extends Practice1 {
 
     @Test(enabled = true, description = "Broken Links")
     public void checkBrokenLinks() throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options= new ChromeOptions();
+        ChromeOptions options = new ChromeOptions();
+        driver = new ChromeDriver(options);
         options.addArguments("--disable-notifications");
         WebDriver driver=new ChromeDriver(options);
         driver.get("https://www.justdial.com/");
@@ -68,11 +68,11 @@ public class Practice extends Practice1 {
 
             try {
                 URL u= new URL(url);
-                HttpURLConnection hc= (HttpURLConnection) u.openConnection();
+                HttpURLConnection huc= (HttpURLConnection) u.openConnection();
                 Thread.sleep(2000);
-                hc.connect();
+                huc.connect();
 
-                responseCode=hc.getResponseCode();
+                responseCode=huc.getResponseCode();
 
                 if(responseCode>=400){
                     System.out.println("broken link:  " +url);

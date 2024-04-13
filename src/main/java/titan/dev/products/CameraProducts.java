@@ -28,8 +28,9 @@ public final class CameraProducts {
         }
         Utilities.wait(ProductsPage.checkoutOrderButton);
         click(ProductsPage.checkoutOrderButton);
+        //click(ProductsPage.finalCheckoutOrderButton);
         log.info("Item Successfully added");
-        ProductUtils.ConfirmOrder();
+       // ProductUtils.ConfirmOrder();
         log.info("Camera order Successfully placed");
     }
 

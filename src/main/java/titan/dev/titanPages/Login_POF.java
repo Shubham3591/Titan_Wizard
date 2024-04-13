@@ -59,8 +59,8 @@ public class Login_POF extends TestBase {
             String username = configurationfile.getProperty("Username");
             String password = configurationfile.getProperty("Password");
 
-            click(LoginPage.myAccount);
-            click(LoginPage.myAccountLogin);
+            //click(LoginPage.myAccount);
+            //click(LoginPage.myAccountLogin);
             Utilities.doLogin(username, password);
             Utilities.wait(HomePage.showingResultsText);
         } catch (Exception e) {
